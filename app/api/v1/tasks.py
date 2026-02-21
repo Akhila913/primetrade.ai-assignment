@@ -8,6 +8,10 @@ from app.db.session import get_db
 from app.db.models.task import Task
 from app.db.models.user import User, UserRole
 from app.schemas.task import TaskCreate, TaskResponse, TaskUpdate
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
 
@@ -26,6 +30,13 @@ def create_task(
     db.add(task)
     db.commit()
     db.refresh(task)
+    logger.info(
+        "Task created",
+        extra={
+            "user_id": str(current_user.id),
+            "task_id": str(task.id)
+        }
+    )
     return task
 
 
@@ -91,6 +102,13 @@ def update_task(
 
     db.commit()
     db.refresh(task)
+    logger.info(
+        "Task updated",
+        extra={
+            "user_id": str(current_user.id),
+            "task_id": str(task.id)
+        }
+    )
 
     return task
 
@@ -117,3 +135,10 @@ def delete_task(
 
     db.delete(task)
     db.commit()
+    logger.info(
+        "Task deleted",
+        extra={
+            "user_id": str(current_user.id),
+            "task_id": str(task.id)
+        }
+    )
