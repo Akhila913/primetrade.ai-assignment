@@ -7,6 +7,10 @@ class TaskBase(BaseModel):
     title: str = Field(..., min_length=1, max_length=255)
     description: str | None = None
 
+    model_config = {
+        "extra": "forbid"
+    }
+
 
 class TaskCreate(TaskBase):
     pass
@@ -16,6 +20,10 @@ class TaskUpdate(BaseModel):
     title: str | None = Field(None, min_length=1, max_length=255)
     description: str | None = None
 
+    model_config = {
+        "extra": "forbid"
+    }
+
 
 class TaskResponse(TaskBase):
     id: UUID
@@ -23,5 +31,6 @@ class TaskResponse(TaskBase):
     created_at: datetime
     updated_at: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True
+    }

@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.schemas.user import UserCreate, UserResponse
 from app.schemas.auth import LoginRequest, TokenResponse
-from app.db.models.user import User
+from app.db.models.user import User, UserRole
 from app.core.security import hash_password, verify_password, create_access_token
 from app.api.deps import get_db
 
@@ -22,6 +22,7 @@ def register_user(payload: UserCreate, db: Session = Depends(get_db)):
     new_user = User(
         email=payload.email,
         password_hash=hash_password(payload.password),
+        role=UserRole.user,
     )
 
     db.add(new_user)

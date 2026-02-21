@@ -14,7 +14,6 @@ class UserBase(BaseModel):
 
 class UserCreate(UserBase):
     password: str = Field(..., min_length=8, max_length=128)
-    role: UserRole
 
     model_config = {
         "extra": "forbid"
