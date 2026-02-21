@@ -7,9 +7,18 @@ from app.db.models.user import UserRole
 class UserBase(BaseModel):
     email: EmailStr
 
+    model_config = {
+        "extra": "forbid"
+    }
+
 
 class UserCreate(UserBase):
     password: str = Field(..., min_length=8, max_length=128)
+    role: UserRole
+
+    model_config = {
+        "extra": "forbid"
+    }
 
 
 class UserResponse(UserBase):
@@ -18,5 +27,6 @@ class UserResponse(UserBase):
     is_active: bool
     created_at: datetime
 
-    class Config:
-        from_attributes = True
+    model_config = {
+        "from_attributes": True
+    }
