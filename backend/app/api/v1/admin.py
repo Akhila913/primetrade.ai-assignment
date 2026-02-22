@@ -7,7 +7,10 @@ from app.db.models.user import User
 from app.schemas.user import UserResponse
 from app.api.deps import get_current_user
 from app.db.models.user import UserRole
+import logging
 
+
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/admin", tags=["Admin"])
 
 
@@ -21,5 +24,9 @@ def get_all_users(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Admin access required",
         )
+    logger.info(
+        "Admin fetched all users",
+        extra={"admin_id": str(current_user.id)}
+    )
 
     return db.query(User).all()
