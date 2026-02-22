@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrimeTrade Auth</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+
+        <div class="toggle-buttons">
+            <button id="login-btn" class="active" onclick="showLogin()">Login</button>
+            <button id="signup-btn" onclick="showSignup()">Signup</button>
+        </div>
+
+        <div class="forms-container">
+
+            <div class="form" id="login-form">
+                <h2>Login</h2>
+                <input type="email" id="login-email" placeholder="Email Address">
+
+                <div class="password-wrapper">
+                    <input type="password" id="login-password" placeholder="Password">
+                    <span class="toggle-eye" onclick="togglePassword('login-password', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+
+                <button class="submit-btn" onclick="login()">Login</button>
+                <p id="login-message" class="message"></p>
+            </div>
+
+            <div class="form hidden" id="signup-form">
+                <h2>Signup</h2>
+                <input type="email" id="reg-email" placeholder="Email Address">
+
+                <div class="password-wrapper">
+                    <input type="password" id="reg-password" placeholder="Password">
+                    <span class="toggle-eye" onclick="togglePassword('reg-password', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </span>
+                </div>
+
+                <button class="submit-btn" onclick="register()">Signup</button>
+                <p id="reg-message" class="message"></p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/ui.js"></script>
+
+</body>
+</html>

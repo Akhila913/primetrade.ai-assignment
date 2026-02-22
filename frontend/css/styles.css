@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #6a8caf, #4b6cb7);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-wrapper {
+    width: 560px;
+    max-width: 90%;
+    padding: 40px 35px;
+}
+
+.auth-card {
+    background: #ffffff;
+    padding: 50px 55px 80px 55px;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+}
+
+.toggle-buttons {
+    display: flex;
+    margin-bottom: 35px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.toggle-buttons button {
+    flex: 1;
+    padding: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background: #e5e5e5;
+    transition: all 0.2s ease;
+}
+
+.toggle-buttons button.active {
+    background: linear-gradient(90deg, #2b50ed, #3b82f6);
+    color: white;
+}
+
+.toggle-buttons button:hover {
+    opacity: 0.9;
+}
+
+.forms-container {
+    position: relative;
+    min-height: 320px; 
+}
+
+.form {
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form input,
+.form .password-wrapper,
+.form .submit-btn {
+    width: 100%;
+    max-width: 100%;
+    
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form:not(.hidden) {
+    opacity: 1;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 16px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    padding-right: 55px;
+}
+
+.toggle-eye {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px; /* bigger */
+    color: #555;
+}
+
+.toggle-eye:hover {
+    color: #2b50ed;
+}
+
+.submit-btn {
+    padding: 15px;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #2b50ed, #3b82f6);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.message {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    min-height: 24px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-line;
+    line-height: 1.4;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.message.show {
+    opacity: 1;
+}
+
+.message.error {
+    color: #e53935;
+    font-weight: 500;
+}
+
+.message.success {
+    color: #2e7d32;
+    font-weight: 500;
+}
