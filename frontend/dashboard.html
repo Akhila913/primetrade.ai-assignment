@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-wrapper">
+
+    <header class="dashboard-header">
+        <h1>Task Dashboard</h1>
+        <div class="user-info" id="header-actions">
+            <span id="user-role"></span>
+            <span id="admin-badge" class="admin-badge hidden">ADMIN MODE</span>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <section class="create-task">
+        <h2>Create Task</h2>
+        <input type="text" id="task-title" placeholder="Task Title">
+        <textarea id="task-description" placeholder="Task Description"></textarea>
+        <button onclick="createTask()" class="primary-btn">Add Task</button>
+        <p id="task-message" class="message"></p>
+    </section>
+
+    <section class="task-list">
+        <h2 id="tasks-heading">Your Tasks</h2>
+        <div id="tasks-container"></div>
+    </section>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+
+<div id="delete-modal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Confirm Delete</h3>
+        <p>Are you sure you want to delete this task?</p>
+        <div class="modal-actions">
+            <button id="confirm-delete" class="delete-btn">Delete</button>
+            <button onclick="closeModal()" class="cancel-btn">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+</body>
+</html>

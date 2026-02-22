@@ -12,7 +12,7 @@ async function register() {
             password
         });
 
-        messageEl.textContent = "Registration successful!";
+        messageEl.textContent = "Registration successful! Login to your account...";
         messageEl.classList.add("success", "show");
 
     } catch (error) {

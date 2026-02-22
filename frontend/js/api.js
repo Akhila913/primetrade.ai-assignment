@@ -20,14 +20,20 @@ async function apiRequest(endpoint, method = "GET", data = null) {
 
     const response = await fetch(`${BASE_URL}${endpoint}`, options);
 
+    if (response.status === 401) {
+        localStorage.removeItem("access_token");
+        alert("Session expired. Please login again.");
+        window.location.href = "index.html";
+        return;
+    }
+
     const result = await response.json().catch(() => ({}));
 
     if (!response.ok) {
         if (Array.isArray(result.detail)) {
             const messages = result.detail.map(err => err.msg);
-            throw new Error(messages.join("\n"));  
+            throw new Error(messages.join(", "));
         }
-
         throw new Error(result.detail || "Something went wrong");
     }
 
