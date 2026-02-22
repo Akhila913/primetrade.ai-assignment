@@ -202,7 +202,7 @@ GET /api/v1/admin/users
 
 ---
 
-### Sample Test Credentials
+## Sample Test Credentials
 
 You may create users using the register endpoint.
 
